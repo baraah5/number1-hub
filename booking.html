@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز مساحة - Number 1 Workspace</title>
+    <meta name="description" content="احجز مساحتك الآن في Number 1 Workspace بسهولة وسرعة.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        secondary: "#1E40AF",
+                        dark: "#1F2937"
+                    },
+                    fontFamily: {
+                        arabic: ['"Noto Sans Arabic"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-50 text-gray-800 font-arabic">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <img class="w-16 bg-white" src="images/الشعار.png" alt="Number 1 Workspace">
+                <div>
+                    <h1 class="text-lg md:text-xl font-bold text-dark">Number 1 Workspace</h1>
+                    <p class="text-xs md:text-sm text-gray-600">صفحة الحجز</p>
+                </div>
+            </div>
+            <a href="number.html"
+                class="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-secondary transition-colors duration-300">
+                العودة للرئيسية
+            </a>
+        </nav>
+    </header>
+
+    <main class="py-12 md:py-16">
+        <section class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 text-dark">احجز مساحتك الآن</h2>
+            <p class="text-center text-gray-600 mb-10">املأ البيانات التالية وسنتواصل معك لتأكيد الحجز.</p>
+
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <form id="booking-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-2">الاسم الكامل</label>
+                        <input type="text" id="name" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-gray-700 mb-2">رقم الهاتف</label>
+                        <input type="tel" id="phone" required placeholder="05XXXXXXXX"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                    </div>
+
+                    <div>
+                        <label for="plan" class="block text-gray-700 mb-2">اختر الخطة</label>
+                        <select id="plan" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            <option value="">اختر خطة الحجز</option>
+                            <option value="hourly">خطة الساعة (10 شيكل/4 ساعات)</option>
+                            <option value="daily">خطة اليوم (18 شيكل/يوم)</option>
+                            <option value="weekly">خطة الاسبوع (100 شيكل/الاسبوع)</option>
+                            <option value="monthly">خطة الشهر (360 شيكل/شهر)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="date" class="block text-gray-700 mb-2">التاريخ</label>
+                        <input type="date" id="date" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                    </div>
+
+                    <div>
+                        <label for="time" class="block text-gray-700 mb-2">الوقت</label>
+                        <select id="time" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            <option value="">اختر الوقت</option>
+                            <option value="08:00">08:00 صباحاً</option>
+                            <option value="10:00">10:00 صباحاً</option>
+                            <option value="12:00">12:00 ظهراً</option>
+                            <option value="14:00">02:00 بعد الظهر</option>
+                            <option value="16:00">04:00 عصراً</option>
+                            <option value="18:00">06:00 مساءً</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="hours" class="block text-gray-700 mb-2">عدد الساعات (لخطة الساعة فقط)</label>
+                        <input type="number" id="hours" min="1" max="12" placeholder="أدخل عدد الساعات"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-300">
+                        تأكيد الحجز
+                    </button>
+                </form>
+
+                <div id="booking-success" class="hidden mt-6 p-4 bg-green-50 text-green-700 rounded-lg">
+                    <i class="fas fa-check-circle ml-2"></i>
+                    <span>تم إرسال طلب الحجز بنجاح! سنتواصل معك قريباً.</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bookingForm = document.getElementById("booking-form");
+            const bookingSuccess = document.getElementById("booking-success");
+            const dateInput = document.getElementById("date");
+
+            if (dateInput) {
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, "0");
+                const dd = String(today.getDate()).padStart(2, "0");
+                dateInput.min = yyyy + "-" + mm + "-" + dd;
+            }
+
+            if (bookingForm && bookingSuccess) {
+                bookingForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    bookingSuccess.classList.remove("hidden");
+                    bookingForm.reset();
+                    bookingSuccess.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

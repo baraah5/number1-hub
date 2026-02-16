@@ -1,0 +1,815 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number 1 Workspace - مساحة العمل المثالية للطلاب والمستقلين</title>
+    <meta name="description"
+        content="مساحة عمل متكاملة للطلاب والمستقلين توفر بيئة محفزة للإبداع والإنتاجية مع خدمات حجز مرنة وسهلة">
+    <meta name="keywords" content="مساحة عمل, coworking, طلاب, مستقلين, فريلانسرز, حجز مساحة عمل, مكتب مشترك">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        // window.onscroll{
+        //     behavior: 'smooth'
+        // }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        secondary: "#1E40AF",
+                        accent: "#10B981",
+                        dark: "#1F2937",
+                        light: "#F9FAFB"
+                    },
+                    fontFamily: {
+                        'arabic': ['"Noto Sans Arabic"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link-active {
+            color: #3B82F6;
+        }
+
+        .nav-link-active::after {
+            width: 100%;
+        }
+
+        /* .container{
+            width: 50%;
+        } */
+
+        .hero-image {
+            width: 60%;
+            margin: auto;
+            display: block;
+            animation: heroMoveUpDown 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroMoveUpDown {
+            from {
+                transform: translateY(-12px);
+            }
+
+            to {
+                transform: translateY(12px);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-50 text-gray-800 font-arabic">
+    <!-- شريط التنقل -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- الشعار -->
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <div class="bg-primary rounded-lg flex items-center justify-center">
+                        <img class="w-20 bg-white" src="images/الشعار.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-dark">Number 1 Workspace</h1>
+                        <p class="text-sm text-gray-600">مساحة العمل المتكاملة</p>
+                    </div>
+                </div>
+
+                <!-- روابط التنقل -->
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#home"
+                        class="nav-link text-gray-700 hover:text-primary transition-colors duration-300">الرئيسية</a>
+                    <a href="#pricing"
+                        class="nav-link text-gray-700 hover:text-primary transition-colors duration-300">الأسعار</a>
+                    <a href="booking.html"
+                        class="nav-link text-gray-700 hover:text-primary transition-colors duration-300">الحجز</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300">من
+                        نحن</a>
+                    <a href="#gallery"
+                        class="nav-link text-gray-700 hover:text-primary transition-colors duration-300">معرض الصور</a>
+                    <a href="#contact"
+                        class="nav-link text-gray-700 hover:text-primary transition-colors duration-300">تواصل معنا</a>
+                </div>
+
+                <!-- زر القائمة للموبايل -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- القائمة المتنقلة -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-primary">الرئيسية</a>
+                <a href="#pricing" class="block py-2 text-gray-700 hover:text-primary">الأسعار</a>
+                <a href="booking.html" class="block py-2 text-gray-700 hover:text-primary">الحجز</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary">من نحن</a>
+                <a href="#gallery" class="block py-2 text-gray-700 hover:text-primary">معرض الصور</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary">تواصل معنا</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- قسم البطل (الرئيسية) -->
+        <section id="home" class="hero bg-[#004F9E] px-5 text-white py-6 md:py-10">
+            <div class="container max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">مساحة العمل المثالية للطلاب والمستقلين</h2>
+                        <p class="text-lg mb-8 opacity-90">في Number 1 Workspace، نهيئ لك مسرح الإنجاز الحقيقي؛ حيث
+                            تلتقي الرؤية بالطموح، وتعمل التقنيات المتقدمة لخدمة إبداعك. هنا ينتمي الطامحون للقمة، وهنا
+                            تبدأ قصص النجاح التي تُصنع بثقة وتميّز.
+                            احجز مكانك الآن، وكن جزءًا من المبدعين الذين يصنعون المستقبل.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#booking"
+                                class="bg-white text-[#004F9E]  border-2 px-8 py-3 rounded-lg font-semibold hover:bg-[#004F9E] hover:text-white hover:border-white transition-colors duration-300 shadow-lg">
+                                إنضم الى المبدعين
+                            </a>
+                            <a href="#gallery"
+                                class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#004F9E] transition-colors duration-300">
+                                استعرض الصور
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="images/الابيض.png" class="hero-image" style="width: 600px;;">
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المميزات -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark">لماذا تختار Number 1 Workspace؟</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6">
+                        <div
+                            class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-wifi text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">إنترنت فائق السرعة</h3>
+                        <p class="text-gray-600">اتصال إنترنت سريع ومستقر لدعم جميع احتياجاتك الرقمية</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div
+                            class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-coffee text-accent text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">مشروبات</h3>
+                        <p class="text-gray-600">قهوة وشاي ومشروبات دافئة متاحة طوال اليوم</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div
+                            class="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-secondary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">مجتمع داعم</h3>
+                        <p class="text-gray-600">انضم إلى مجتمع من الطلاب والمستقلين لتبادل الخبرات</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الأسعار -->
+        <section id="pricing" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark">خطط الأسعار المرنة</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch">
+                    <!-- خطة الساعة -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden price-card transition-all duration-300 flex flex-col h-full">
+                        <div class="bg-primary text-white py-6 px-8">
+                            <h3 class="text-2xl font-bold">خطة ال4 ساعات</h3>
+                            <p class="opacity-90">مثالية للزيارات القصيرة</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <div class="text-center mb-6">
+                                <span class="text-5xl font-bold text-dark">10</span>
+                                <span class="text-gray-600">شيكل</span>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>إنترنت فائق السرعة (فايبر)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>كهرباء مستقرة<span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>مكان عمل مريح</span>
+                                </li>
+                                <!-- <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>خدمة الطباعة (مدفوعة)</span>
+                                </li> -->
+                            </ul>
+                            <a href="booking.html"
+                                class="block w-full mt-auto bg-primary text-white text-center py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-300">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- خطة اليوم -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden price-card transition-all duration-300 flex flex-col h-full">
+                        <div class="bg-secondary text-white py-6 px-8">
+                            <h3 class="text-2xl font-bold">خطة اليوم</h3>
+                            <p class="opacity-90">الأكثر شيوعاً</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <div class="text-center mb-6">
+                                <span class="text-5xl font-bold text-dark">18</span>
+                                <span class="text-gray-600">شيكل</span>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>إنترنت فائق السرعة (فايبر)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>كهرباء مستقرة<span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>مكان عمل مريح</span>
+                                </li>
+                            </ul>
+                            <a href="booking.html"
+                                class="block w-full mt-auto bg-secondary text-white text-center py-3 rounded-lg font-semibold hover:bg-dark transition-colors duration-300">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- خطة الاسبوع -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden price-card transition-all duration-300 flex flex-col h-full">
+                        <div class="bg-secondary text-white py-6 px-8">
+                            <h3 class="text-2xl font-bold">خطة الأسبوع</h3>
+                            <p class="opacity-90">الأكثر شيوعاً</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <div class="text-center mb-6">
+                                <span class="text-5xl font-bold text-dark">100</span>
+                                <span class="text-gray-600">شيكل</span>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>إنترنت فائق السرعة (فايبر)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>كهرباء مستقرة<span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>مكان عمل مريح</span>
+                                </li>
+                            </ul>
+                            <a href="booking.html"
+                                class="block w-full mt-auto bg-secondary text-white text-center py-3 rounded-lg font-semibold hover:bg-dark transition-colors duration-300">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- خطة الشهر -->
+                    <div
+                        class="bg-white rounded-2xl shadow-lg overflow-hidden price-card transition-all duration-300 flex flex-col h-full">
+                        <div class="bg-dark text-white py-6 px-8">
+                            <h3 class="text-2xl font-bold">خطة الشهر</h3>
+                            <p class="opacity-90">الأفضل للمواظبين</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <div class="text-center mb-6">
+                                <span class="text-5xl font-bold text-dark">360</span>
+                                <span class="text-gray-600">شيكل</span>
+                            </div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>إنترنت فائق السرعة (فايبر)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>كهرباء مستقرة<span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>مكان عمل مريح</span>
+                                </li>
+                                <!-- <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>خدمة الطباعة المجانية (100 صفحة)</span>
+                                </li> -->
+                                <!-- <li class="flex items-center">
+                                    <i class="fas fa-check text-accent ml-3"></i>
+                                    <span>دعوة صديق مجانية</span>
+                                </li> -->
+                            </ul>
+                            <a href="booking.html"
+                                class="block w-full mt-auto bg-dark text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-300">
+                                احجز الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- نموذج الحجز -->
+        <!-- <section id="booking" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark">احجز مساحتك الآن</h2>
+                <div class="max-w-2xl mx-auto bg-gray-50 rounded-2xl shadow-lg p-8">
+                    <form id="booking-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">الاسم الكامل</label>
+                            <input type="text" id="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">رقم الهاتف</label>
+                            <input type="tel" id="phone" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                placeholder="05XXXXXXXX">
+                        </div>
+
+                        <div>
+                            <label for="plan" class="block text-gray-700 mb-2">اختر الخطة</label>
+                            <select id="plan" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                <option value="">اختر خطة الحجز</option>
+                                <option value="hourly">خطة الساعة (10 شيكل/4ساعات)</option>
+                                <option value="daily">خطة اليوم (18 شيكل/يوم)</option>
+                                <option value="daily">خطة الاسبوع (100 شيكل/الاسبوع)</option>
+                                <option value="monthly">خطة الشهر (360 شيكل/شهر)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="date" class="block text-gray-700 mb-2">التاريخ</label>
+                            <input type="date" id="date" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                        </div>
+
+                        <div>
+                            <label for="time" class="block text-gray-700 mb-2">الوقت</label>
+                            <select id="time" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                                <option value="">اختر الوقت</option>
+                                <option value="08:00">08:00 صباحاً</option>
+                                <option value="10:00">10:00 صباحاً</option>
+                                <option value="12:00">12:00 ظهراً</option>
+                                <option value="14:00">02:00 بعد الظهر</option>
+                                <option value="16:00">04:00 عصراً</option>
+                                <option value="18:00">06:00 مساءً</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="hours" class="block text-gray-700 mb-2">عدد الساعات (لخطة الساعة فقط)</label>
+                            <input type="number" id="hours" min="1" max="12"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
+                                placeholder="أدخل عدد الساعات">
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-300">
+                            تأكيد الحجز
+                        </button>
+                    </form>
+
+                    <div id="booking-success" class="hidden mt-6 p-4 bg-green-50 text-green-700 rounded-lg">
+                        <i class="fas fa-check-circle ml-2"></i>
+                        <span>تم إرسال طلب الحجز بنجاح! سنتواصل معك قريباً.</span>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- قسم من نحن -->
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:ml-12">
+                        <img src="https://picsum.photos/600/400?random=2" alt="فريق العمل في Number 1 Workspace"
+                            class="rounded-2xl shadow-lg w-full" loading="lazy" />
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6 text-dark">من نحن</h2>
+                        <p class="text-gray-600 mb-6 text-lg">
+                            Number 1 Workspace ليست مجرد مساحة عمل عادية، بل هي مجتمع متكامل يهدف إلى تمكين الطلاب
+                            والمستقلين
+                            من تحقيق إمكاناتهم الكاملة في بيئة محفزة وداعمة.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            تأسست مساحتنا عام 2025 برؤية طموحة وواضحة: أن نعيد تعريف تجربة العمل للطلاب والمستقلين من خلال بيئة استثنائية تمزج بين الراحة، وأحدث التقنيات، وروح المجتمع المتعاون. نحن نؤمن بأن المكان الصحيح لا يحتضن الأفكار فقط، بل يمنحها القوة لتتحول إلى إنجازات حقيقية تُحدث فرقًا.
+                            
+                            
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fas fa-bullseye text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">رؤيتنا</h4>
+                                    <p class="text-gray-600 text-sm"> أن نكون الوجهة الأولى للطلاب والمبدعين والطامحين،
+                                        حيث تُصنع الفرص، ويكبر الابتكار، وتبدأ رحلات النجاح بثقة وتميّز.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-accent bg-opacity-10 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fas fa-flag text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">رسالتنا</h4>
+                                    <p class="text-gray-600 text-sm">صناعة بيئة تحتضن الطموح وتحرّر الإبداع، لنمكّن
+                                        الطلاب والمستقلين من تحويل أفكارهم إلى إنجازات مؤثرة. نعمل على تقديم تجربة عمل
+                                        ترتقي بالمعايير، وتفتح الأبواب نحو مستقبل مليء بالفرص.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- معرض الصور -->
+        <section id="gallery" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark">معرض الصور</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="overflow-hidden rounded-2xl shadow-lg">
+                        <img src="https://picsum.photos/400/300?random=3" alt="منطقة العمل المشتركة"
+                            class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                            loading="lazy" />
+                        <div class="p-4 bg-white">
+                            <p class="text-gray-700 font-semibold">منطقة العمل المشتركة</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg">
+                        <img src="https://picsum.photos/400/300?random=4" alt="غرفة الاجتماعات"
+                            class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                            loading="lazy" />
+                        <div class="p-4 bg-white">
+                            <p class="text-gray-700 font-semibold">غرفة الاجتماعات</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg">
+                        <img src="https://picsum.photos/400/300?random=5" alt="منطقة الاستراحة"
+                            class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                            loading="lazy" />
+                        <div class="p-4 bg-white">
+                            <p class="text-gray-700 font-semibold">منطقة الاستراحة</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg">
+                        <img src="https://picsum.photos/400/300?random=6" alt="المطبخ والكافيه"
+                            class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                            loading="lazy" />
+                        <div class="p-4 bg-white">
+                            <p class="text-gray-700 font-semibold">المطبخ والكافيه</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg">
+                        <img src="https://picsum.photos/400/300?random=7" alt="منطقة العمل الهادئة"
+                            class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                            loading="lazy" />
+                        <div class="p-4 bg-white">
+                            <p class="text-gray-700 font-semibold">منطقة العمل الهادئة</p>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl shadow-lg">
+                        <img src="https://picsum.photos/400/300?random=8" alt="الفعاليات وورش العمل"
+                            class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                            loading="lazy" />
+                        <div class="p-4 bg-white">
+                            <p class="text-gray-700 font-semibold">الفعاليات وورش العمل</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التواصل -->
+        <section id="contact" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark">تواصل معنا</h2>
+                <div class="grid grid-cols-1 p-12 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl mt-20 font-semibold mb-6">ابق على تواصل</h3>
+                        <p class="text-gray-600 mb-8">
+                            نحن هنا للإجابة على جميع استفساراتك. لا تتردد في التواصل معنا عبر أي من القنوات التالية:
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">واتساب</h4>
+                                    <a href="https://wa.me/966500000000"
+                                        class="text-primary hover:text-secondary transition-colors duration-300">
+                                        +972 59 934 2022
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fas fa-phone text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">الهاتف</h4>
+                                    <a href="tel:+966500000000"
+                                        class="text-primary hover:text-secondary transition-colors duration-300">
+                                        0599342022
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fas fa-envelope text-gray-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark">البريد الإلكتروني</h4>
+                                    <a href="mailto:info@number1workspace.com"
+                                        class="text-primary hover:text-secondary transition-colors duration-300">
+                                        info@number1workspace.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-dark mb-4">تابعنا على وسائل التواصل الاجتماعي</h4>
+                            <div class="flex space-x-4 space-x-reverse">
+                                <!-- <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a> -->
+                                <a href="https://www.facebook.com/profile.php?id=61582380102801&mibextid=ZbWKwL"
+                                    target="_blank"
+                                    class="w-10 h-10 bg-blue-800 text-white rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/no1_hub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                    target="_blank"
+                                    class="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <!-- <a href="#" class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a> -->
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="bg-white max-w-2xl rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-semibold mb-6">أرسل لنا رسالة</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="contact-name" class="block text-gray-700 mb-2">الاسم</label>
+                                <input type="text" id="contact-name" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            </div>
+
+                            <div>
+                                <label for="contact-email" class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                                <input type="email" id="contact-email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                            </div>
+
+                            <div>
+                                <label for="contact-message" class="block text-gray-700 mb-2">الرسالة</label>
+                                <textarea id="contact-message" rows="5" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-300">
+                                إرسال الرسالة
+                            </button>
+                        </form>
+
+                        <div id="contact-success" class="hidden mt-6 p-4 bg-green-50 text-green-700 rounded-lg">
+                            <i class="fas fa-check-circle ml-2"></i>
+                            <span>تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 space-x-reverse mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Number 1 Workspace</h3>
+                            <p class="text-gray-400 text-sm">مساحة العمل الرقمية</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        مساحة عمل متكاملة تهدف إلى تمكين الطلاب والمستقلين من خلال توفير بيئة عمل محفزة ومجهزة بأحدث
+                        التقنيات.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">الرئيسية</a></li>
+                        <li><a href="#pricing"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">الأسعار</a></li>
+                        <li><a href="#booking"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">الحجز</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">من
+                                نحن</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">ساعات العمل</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>السبت - الخميس</span>
+                            <span>8 صباحاً - 6 مساءً</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>الجمعة</span>
+                            <span>9 صباحا - 5 مساءً</span>
+                        </li>
+                        <!-- <li class="flex justify-between">
+                            <span>السبت</span>
+                            <span>9 صباحاً - 10 مساءً</span> -->
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">النشرة البريدية</h4>
+                    <p class="text-gray-400 mb-4">اشترك لتصلك آخر العروض والأخبار</p>
+                    <form id="newsletter-form" class="flex">
+                        <input type="email" placeholder="بريدك الإلكتروني" required
+                            class="flex-grow px-4 py-2 rounded-r-lg text-dark">
+                        <button type="submit"
+                            class="bg-primary px-4 py-2 rounded-l-lg hover:bg-secondary transition-colors duration-300">
+                            اشترك
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Number 1 Workspace. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تعريف البيانات
+        const bookingData = {
+            plans: [
+                { "id": "hourly", "name": "خطة الساعة", "price": 15, "unit": "ساعة" },
+                { "id": "daily", "name": "خطة اليوم", "price": 80, "unit": "يوم" },
+                { "id": "monthly", "name": "خطة الشهر", "price": 500, "unit": "شهر" }
+            ],
+            timeSlots: [
+                "08:00", "10:00", "12:00", "14:00", "16:00", "18:00"
+            ]
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = Array.from(document.querySelectorAll("header a[href^='#']"));
+            const sections = Array.from(document.querySelectorAll("main section[id]"));
+
+            if (!navLinks.length || !sections.length) {
+                return;
+            }
+
+            function setActiveLink(sectionId) {
+                navLinks.forEach(function (link) {
+                    const isActive = link.getAttribute("href") === "#" + sectionId;
+                    link.classList.toggle("text-primary", isActive);
+
+                    if (link.classList.contains("nav-link")) {
+                        link.classList.toggle("nav-link-active", isActive);
+                    } else {
+                        link.classList.toggle("font-semibold", isActive);
+                    }
+                });
+            }
+
+            function updateActiveByScroll() {
+                const scrollPosition = window.scrollY + 120;
+                let currentId = sections[0].id;
+
+                sections.forEach(function (section) {
+                    if (scrollPosition >= section.offsetTop) {
+                        currentId = section.id;
+                    }
+                });
+
+                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+                    currentId = sections[sections.length - 1].id;
+                }
+
+                setActiveLink(currentId);
+            }
+
+            navLinks.forEach(function (link) {
+                link.addEventListener("click", function () {
+                    const targetId = this.getAttribute("href").replace("#", "");
+                    if (targetId) {
+                        setActiveLink(targetId);
+                    }
+                });
+            });
+
+            window.addEventListener("scroll", updateActiveByScroll, { passive: true });
+            window.addEventListener("load", updateActiveByScroll);
+            updateActiveByScroll();
+        });
+    </script>
+
+</body>
+
+</html>
